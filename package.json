@@ -1,0 +1,25 @@
+{
+  "name": "static-image-viewer",
+  "version": "0.0.0-beta",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9033/static-image-viewer.git"
+  },
+  "author": "Lee JaeKyu (@9033)",
+  "bugs": {
+    "url": "https://github.com/9033/static-image-viewer/issues"
+  },
+  "homepage": "https://github.com/9033/static-image-viewer#readme",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  }
+}
