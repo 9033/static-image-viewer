@@ -1,11 +1,14 @@
 var createError = require('http-errors');
 var express = require('express');
+const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var passport = require('passport')
+var login = require('./routes/login');
 
 var app = express();
 require('dotenv').config();
@@ -21,6 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/login', login.router);
+app.use(login.check);
+
 app.use('/data', express.static(dataPath));
 
 app.use('/', indexRouter);

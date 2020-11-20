@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='/javascripts/viewImageWhenShowUpByScrollDown.js' defer></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form method="post" action="/login">
+      <input type="text" name="username" >
+      <input type="password" name="password" >
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
