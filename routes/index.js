@@ -31,7 +31,7 @@ router.get(['/*'], function(req, res, next) {
     res.render('index', {
       title: 'Express',
       ...readDirFiles(readDir),
-      dirName,
+      dirName:encodeURI(dirName || ''),
     });
   })
   .catch(e=>{ // not found
