@@ -3,6 +3,14 @@ var router = express.Router();
 var path = require('path');
 var fs = require('fs');
 
+// version checker
+// fs.promises.stat, fs.promises.readdir
+(()=>{
+  if(!fs.promises){
+    throw Error('check node version above v10.0.0');
+  }
+})();
+
 /*
 readDir: readdir의 리턴값.
 nowPath: 현재 위치의 path
