@@ -52,11 +52,16 @@ const readDirFiles = async (readDir = [], nowPath, sortFolderByTime = false) =>{
   }
 }
 
+const db = require('../db');
 /* GET home page. */
 router.get(['/*'], async function(req, res, next) {
   const dataPath = req.app.get('dataPath')
   const dirName = req.params['0']
   const newPath = (dirName)?path.join(dataPath, dirName):dataPath
+  db.models.viewLog.create({
+    user:'test',
+    route:'/'+dirName,
+  }).then().catch(e=>console.error(e));
   try{
     const readDir = await fs.promises.readdir(newPath, {withFileTypes: true}) // withFileTypes was added after fs.promises
     res.render('index', {
